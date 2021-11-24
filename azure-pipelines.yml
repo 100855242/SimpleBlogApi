@@ -33,6 +33,12 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: '**/**Tests/*Tests.csproj'
+    testRunTitle: 'TestBlogAPI'
+
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Pipeline.Workspace)'
